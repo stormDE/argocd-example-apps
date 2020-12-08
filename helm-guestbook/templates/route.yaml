@@ -1,7 +1,7 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: {{ template "helm-guestbook.fullname" . }}-frontend
+  name: {{ template "helm-guestbook.name" . }}
   namespace: guestbook
 spec:
   path: /git
