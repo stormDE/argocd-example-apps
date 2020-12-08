@@ -2,14 +2,11 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: {{ template "helm-guestbook.fullname" . }}-frontend
-  ownerReferences:
-  - apiVersion: networking.k8s.io/v1beta1
-    controller: true
-    kind: Ingress
-    name: frontend
-    uid: 4e6c59cc-704d-4f44-b390-617d879033b6
+  namespace: guestbook
 spec:
-  host: www.{{ template "helm-guestbook.fullname" . }}-frontend
+  path: /
   to:
     kind: Service
     name: {{ template "helm-guestbook.name" . }}
+  port:
+    targetPort: 80
