@@ -4,9 +4,9 @@ metadata:
   name: {{ template "helm-guestbook.fullname" . }}-frontend
   namespace: guestbook
 spec:
-  path: /
+  path: /git
   to:
     kind: Service
-    name: {{ template "helm-guestbook.name" . }}.apps-crc.testing
+    name: {{ template "helm-guestbook.fullname" . }}
   port:
     targetPort: 80
