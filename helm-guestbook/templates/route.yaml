@@ -1,7 +1,7 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: {{ template "helm-guestbook.fullname"-frontend . }}
+  name: {{ template "helm-guestbook.fullname" . }}-frontend
   ownerReferences:
   - apiVersion: networking.k8s.io/v1beta1
     controller: true
@@ -9,7 +9,7 @@ metadata:
     name: frontend
     uid: 4e6c59cc-704d-4f44-b390-617d879033b6
 spec:
-  host: www.example.com
+  host: www.{{ template "helm-guestbook.fullname" . }}-frontend
   to:
     kind: Service
-    name: frontend
+    name: {{ template "helm-guestbook.name" . }}
