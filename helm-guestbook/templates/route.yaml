@@ -7,6 +7,6 @@ spec:
   path: /
   to:
     kind: Service
-    name: {{ template "helm-guestbook.name" . }}
+    name: {{ template "helm-guestbook.name" . }}.apps-crc.testing
   port:
     targetPort: 80
